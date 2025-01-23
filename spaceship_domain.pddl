@@ -5,7 +5,7 @@
 
    (:action travel
       :parameters (?s - spaceship ?p1 - planet ?p2 - planet)
-      :precondition (and (at ?s ?p1) (connected ?p1 ?p2))
+      :precondition (and (at ?s ?p1) (connected ?p1 ?p2) (is_full_fuel ?s))
       :effect (and (at ?s ?p2) (not (at ?s ?p1)))
    )
 
