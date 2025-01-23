@@ -11,8 +11,8 @@
 
    (:action pick-up
       :parameters (?s - spaceship ?i - item ?p - planet)
-      :precondition (and (at ?s ?p) (at ?i ?p) (not (carrying ?s)) (not (is_full)))
-      :effect (and (carrying ?s ?i) (not (at ?i ?p)) (is_full))
+      :precondition (and (at ?s ?p) (at ?i ?p) (not (carrying ?s)) (not (is_full)) (is_full_fuel ?s))
+      :effect (and (carrying ?s ?i) (not (at ?i ?p)) (is_full) (not (is_full_fuel ?s)))
    )
 
    (:action drop-off
@@ -25,5 +25,23 @@
       :parameters (?s - spaceship ?p - planet)
       :precondition (and (at ?s ?p) (at part1 ?p) (at part2 ?p) (at part3 ?p) (is-corporation ?p))
       :effect (has-jet-booster ?s)
+   )
+
+   (:action refuel
+      :parameters (?s - spaceship ?p - planet)
+      :precondition (and (at ?s ?p) (has-fuel-station ?p) (not (is_full_fuel ?s)))
+      :effect (is_full_fuel ?s)
+   )
+
+   (:action mine-resources
+      :parameters (?s - spaceship ?p - planet ?r - resource)
+      :precondition (and (at ?s ?p) (resource-available ?r ?p) (not (carrying ?s ?r)))
+      :effect (and (carrying ?s ?r) (not (resource-available ?r ?p)))
+   )
+
+   (:action build-fuel-station
+      :parameters (?s - spaceship ?p - planet ?r1 - resource)
+      :precondition (and (at ?s ?p) (carrying ?s ?r1) (not (has-fuel-station ?p)))
+      :effect (and (has-fuel-station ?p) (not (carrying ?s ?r1)))
    )
 )
