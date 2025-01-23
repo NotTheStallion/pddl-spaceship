@@ -5,7 +5,7 @@
       spaceship1 - spaceship
       planet1 planet2 planet3 planet4 planet5 planet6 planet7 planet8 planet9 planet10 - planet
       part1 part2 part3 - item
-      resource1 resource2 resource3 resource4 resource5 - resource
+      resource1 resource2 resource3 - resource
    )
 
    (:init
