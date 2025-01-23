@@ -11,14 +11,14 @@
 
    (:action pick-up
       :parameters (?s - spaceship ?i - item ?p - planet)
-      :precondition (and (at ?s ?p) (at ?i ?p) (not (carrying ?s)))
-      :effect (and (carrying ?s ?i) (not (at ?i ?p)))
+      :precondition (and (at ?s ?p) (at ?i ?p) (not (carrying ?s)) (not (is_full)))
+      :effect (and (carrying ?s ?i) (not (at ?i ?p)) (is_full))
    )
 
    (:action drop-off
       :parameters (?s - spaceship ?i - item ?p - planet)
-      :precondition (and (at ?s ?p) (carrying ?s ?i))
-      :effect (and (at ?i ?p) (not (carrying ?s ?i)))
+      :precondition (and (at ?s ?p) (carrying ?s ?i) (is_full))
+      :effect (and (at ?i ?p) (not (carrying ?s ?i)) (not (is_full)))
    )
 
    (:action craft-jet-booster
