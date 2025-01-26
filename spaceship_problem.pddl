@@ -19,27 +19,21 @@
       (connected planet7 planet8) (connected planet8 planet7)
       (connected planet8 planet9) (connected planet9 planet8)
       (connected planet9 planet10) (connected planet10 planet9)
-      (connected planet1 planet5) (connected planet5 planet1)
-      (connected planet2 planet6) (connected planet6 planet2)
-      (connected planet3 planet7) (connected planet7 planet3)
-      (connected planet4 planet8) (connected planet8 planet4)
-      (connected planet5 planet9) (connected planet9 planet5)
+
+      (connected planet1 planet4) (connected planet4 planet1)
       (connected planet6 planet10) (connected planet10 planet6)
 
       ; Initial spaceship and item locations
       (at spaceship1 planet1)
       (at part1 planet3)
-      (at part2 planet6)
+      (at part2 planet5)
       (at part3 planet9)
 
       ; Initial fuel stations and resources
-      (has-fuel-station planet2)
-      (has-fuel-station planet7)
-      (resource-available resource1 planet4)
-      (resource-available resource2 planet5)
+      (has-fuel-station planet9)
+      (resource-available resource1 planet2)
+      (resource-available resource2 planet6)
       (resource-available resource3 planet8)
-      (resource-available resource4 planet9)
-      (resource-available resource5 planet10)
 
       ; Planet 10 is the corporation
       (is-corporation planet10)
